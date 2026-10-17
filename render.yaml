@@ -1,0 +1,14 @@
+# Deploy gratuito del server multiplayer (Render, piano free).
+# Uso: collega questo repository a Render come "Blueprint"; Render legge questo file.
+# Nessun servizio a pagamento, nessun tracciamento: viene esposto solo server.js.
+services:
+  - type: web
+    name: hoop-contest
+    runtime: node
+    plan: free
+    buildCommand: npm install --omit=dev
+    startCommand: npm start
+    envVars:
+      # 0 = solo giocatori reali (nessun bot in classifica)
+      - key: BOTS
+        value: "0"

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<meta name="theme-color" content="#16395f">
+<meta name="mobile-web-app-capable" content="yes">
+<title>Hoop Contest — Gara Globale 2 Minuti</title>
+<link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+<div id="app">
+
+  <!-- TOP BAR -->
+  <header id="topbar">
+    <div class="tb-left">
+      <span class="pill-contest">CONTEST</span>
+      <span class="live"><span class="dot"></span>LIVE</span>
+      <span id="playersCount" class="players">248 giocatori</span>
+    </div>
+    <div class="tb-center">
+      <div id="timer">2:00</div>
+      <div class="timer-label">TEMPO RIMASTO</div>
+    </div>
+    <div class="tb-right">
+      <div class="stat"><span class="stat-label">PUNTI</span><span id="score">0</span></div>
+      <div class="stat"><span class="stat-label">TIRI</span><span id="shots">0</span></div>
+      <div class="stat highlight"><span class="stat-label">RANK</span><span id="rank">#1</span></div>
+    </div>
+  </header>
+
+  <!-- RANK PROGRESS BAR -->
+  <div id="rankbar-wrap">
+    <span class="rank-end">ULTIMO</span>
+    <div id="rankbar">
+      <div id="rankbar-fill"></div>
+      <div id="rankbar-marker"><span id="rankbar-pos">#1</span></div>
+    </div>
+    <span class="rank-end">PRIMO</span>
+  </div>
+
+  <main id="stage-wrap">
+    <!-- CANVAS GIOCO -->
+    <div id="canvas-holder">
+      <canvas id="game"></canvas>
+      <div id="float-layer"></div>
+      <div id="next-badge"><span>NEXT</span><div id="next-dot"></div></div>
+      <div id="shot-info"></div>
+    </div>
+
+    <!-- LEADERBOARD LIVE -->
+    <aside id="leaderboard">
+      <div class="lb-head">CLASSIFICA LIVE <span id="lbTimer" class="pulse"></span></div>
+      <ol id="lbList"></ol>
+      <div class="lb-foot">Server authoritative · WebSocket</div>
+    </aside>
+  </main>
+
+  <!-- OVERLAY START -->
+  <div id="overlay-start" class="overlay">
+    <div class="card">
+      <div class="card-top"><span class="pill-contest">CONTEST</span><span class="live"><span class="dot"></span>GARA GLOBALE</span></div>
+      <h1>HOOP<br>CONTEST</h1>
+      <p class="sub">2 minuti · Centinaia di giocatori · Chi segna di più vince</p>
+      <div class="how">
+        <div><b>1.</b> Muovi il mouse</div>
+        <div><b>2.</b> Segui l'arco tratteggiato</div>
+        <div><b>3.</b> Click per tirare</div>
+      </div>
+      <p class="hint">La palla resta ferma · Un click = un tiro · Punti = distanza dal ferro (2–15) · <b>CLEAN (senza toccare nulla) = punti doppi</b></p>
+      <input id="playerName" maxlength="16" placeholder="Il tuo nome (opzionale)" autocomplete="off">
+      <label id="wantWrap"><input type="checkbox" id="wantPlay" checked> Voglio partecipare al prossimo contest</label>
+      <button id="btnStart">ENTRA NEL CONTEST</button>
+      <p class="tiny">Nessun tasto · Solo mouse / touch</p>
+    </div>
+  </div>
+
+  <!-- OVERLAY END -->
+  <div id="overlay-end" class="overlay hidden">
+    <div class="card">
+      <div class="card-top"><span class="pill-contest">FINE CONTEST</span></div>
+      <h2>TIME'S UP</h2>
+      <div id="finalStats"></div>
+      <div id="lobbyInfo"></div>
+      <button id="btnAgain">RIGIOCA</button>
+    </div>
+  </div>
+
+</div>
+<script src="config.js"></script>
+<script src="game.js"></script>
+</body>
+</html>
